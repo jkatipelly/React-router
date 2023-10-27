@@ -18,6 +18,7 @@ function App() {
         <Route path="order-summary" element={<OrderSummary />}></Route>
         <Route path="*" element={<NoMatch />}></Route>
         <Route path="products" element={<Products />}>
+          <Route index element={<FeaturedProducts />}></Route>
           <Route path="featured" element={<FeaturedProducts />}></Route>
           <Route path="new" element={<NewProducts />}></Route>
         </Route>
