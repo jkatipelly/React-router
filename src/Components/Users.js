@@ -1,7 +1,9 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useSearchParams } from "react-router-dom";
 
 export const Users = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const showActiveUsers = searchParams.get("filter") === "active";
   return (
     <div>
       <h2>
@@ -18,6 +20,28 @@ export const Users = () => {
       </h2>
 
       <Outlet />
+
+      <div>
+        <button
+          onClick={() => {
+            setSearchParams({ filter: "active" });
+          }}
+        >
+          Active Users
+        </button>
+        <button
+          onClick={() => {
+            setSearchParams({});
+          }}
+        >
+          Reset Filters
+        </button>
+        {showActiveUsers ? (
+          <h2>Showing Active Users</h2>
+        ) : (
+          <h2>Showing all users</h2>
+        )}
+      </div>
     </div>
   );
 };

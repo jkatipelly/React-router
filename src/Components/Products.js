@@ -9,6 +9,9 @@ export const Products = () => {
       </div>
 
       <nav>
+        {/* <Link to="/products/featured">Featured</Link>
+        <Link to="/products/new">New</Link> */}
+
         <Link to="featured">Featured</Link>
         <Link to="new">New</Link>
       </nav>
